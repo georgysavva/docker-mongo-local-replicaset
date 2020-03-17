@@ -1,4 +1,4 @@
-FROM mongo:latest
+FROM mongo:4.2.3
 
 VOLUME /data
 EXPOSE 27017 27018 27019
