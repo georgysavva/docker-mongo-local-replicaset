@@ -31,7 +31,7 @@ If you mount something into `/data/db1`, the container will not go through it's 
 
 ### Example Run
 
-    docker run -d -p 27017:27017 -p 27018:27018 -p 27019:27019 --name mongo -v /data/mongodb:/data -e "REPLICA_SET_NAME=mongo-rs" --restart=always flqw/docker-mongo-local-replicaset
+    docker run -d -p 27017:27017 -p 27018:27018 -p 27019:27019 --name mongo-rs -v mongo-rs-data:/data -e "REPLICA_SET_NAME=mongo-rs" --restart=always flqw/docker-mongo-local-replicaset
 
 ### Example Mongo Connection String (from another container)
 
