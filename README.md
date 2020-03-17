@@ -11,9 +11,9 @@ You need to know the following:
 #### PORTS
 Each instance exposes a port, all listening on 0.0.0.0 interface:
 
-  - db1: `27001` [primary]
-  - db2: `27002`
-  - db3: `27003`
+  - db1: `27017` [primary]
+  - db2: `27018`
+  - db3: `27019`
 
 #### DATA
 The container will create one volume at `/data`, but you can mount one or more to your host at these paths:
@@ -31,8 +31,8 @@ If you mount something into `/data/db1`, the container will not go through it's 
 
 ### Example Run
 
-    docker run -d -p 27001:27001 -p 27002:27002 -p 27003:27003 --name mongo -v /data/mongodb:/data -e "REPLICA_SET_NAME=mongo-rs" --restart=always flqw/docker-mongo-local-replicaset
+    docker run -d -p 27017:27017 -p 27018:27018 -p 27019:27019 --name mongo -v /data/mongodb:/data -e "REPLICA_SET_NAME=mongo-rs" --restart=always flqw/docker-mongo-local-replicaset
 
 ### Example Mongo Connection String (from another container)
 
-    mongodb://dev:dev@mongo:27001,mongo:27002,mongo:27003/db
+    mongodb://dev:dev@mongo:27017,mongo:27018,mongo:27019/db
