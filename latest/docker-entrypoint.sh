@@ -37,7 +37,7 @@ waitForMongo 27018
 waitForMongo 27019
 
 echo "CONFIGURING REPLICA SET"
-CONFIG="{ _id: '$REPLICA_SET_NAME', members: [{_id: 0, host: 'localhost:27017', priority: 2 }, { _id: 1, host: 'localhost:27018' }, { _id: 2, host: 'localhost:27019' } ]}"
+CONFIG="{ _id: '$REPLICA_SET_NAME', members: [{_id: 0, host: 'localhost:27017', priority: 2 }, { _id: 1, host: 'localhost:27018' }, { _id: 2, host: 'localhost:27019' }], settings: { getLastErrorDefaults: { w: 'majority', wtimeout: 3000 } } }"
 mongo admin --port 27017 --eval "db.runCommand({ replSetInitiate: $CONFIG })"
 
 waitForMongo 27018
